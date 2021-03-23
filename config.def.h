@@ -18,8 +18,34 @@ enum {
  * (first/last value is used as min/max zoom level)
  */
 static const float zoom_levels[] = {
-	 12.5,  25.0,  50.0,  75.0,
-	100.0, 150.0, 200.0, 400.0, 800.0
+    10.0, 15.0,
+    20.0, 25.0,
+    30.0, 35.0,
+    40.0, 45.0,
+    50.0, 55.0,
+    60.0, 65.0,
+    70.0, 75.0,
+    80.0, 85.0,
+    90.0, 95.0,
+    100.0, 105.0,
+    110.0, 115.0,
+    120.0, 125.0,
+    130.0, 135.0,
+    140.0, 145.0,
+    150.0, 155.0,
+    160.0, 165.0,
+    170.0, 175.0,
+    180.0, 185.0,
+    190.0, 195.0,
+    200.0, 205.0,
+    300.0, 305.0,
+    400.0, 405.0,
+    500.0, 505.0,
+    600.0, 605.0,
+    700.0, 705.0,
+    800.0, 805.0,
+    900.0, 905.0,
+    1000.0, 1005.0,
 };
 
 /* default slideshow delay (in sec, overwritten via -S option): */
@@ -48,7 +74,7 @@ static const bool ALPHA_LAYER = false;
 #ifdef _THUMBS_CONFIG
 
 /* thumbnail sizes in pixels (width == height): */
-static const int thumb_sizes[] = { 32, 64, 96, 128, 160 };
+static const int thumb_sizes[] = { 32, 64, 96, 128, 160, 256, 420, 840 };
 
 /* thumbnail size at startup, index into thumb_sizes[]: */
 static const int THUMB_SIZE = 3;
@@ -63,7 +89,7 @@ static const keymap_t keys[] = {
 	{ 0,            XK_Return,        g_switch_mode,        None },
 	{ 0,            XK_f,             g_toggle_fullscreen,  None },
 	{ 0,            XK_b,             g_toggle_bar,         None },
-	{ ControlMask,  XK_x,             g_prefix_external,    None },
+	{ 0,            XK_x,             g_prefix_external,    None },
 	{ 0,            XK_g,             g_first,              None },
 	{ 0,            XK_G,             g_n_or_last,          None },
 	{ 0,            XK_r,             g_reload_image,       None },
@@ -143,8 +169,9 @@ static const keymap_t keys[] = {
 static const button_t buttons[] = {
 	/* modifiers    button            function              argument */
 	{ 0,            1,                i_cursor_navigate,    None },
-	{ 0,            2,                i_drag,               DRAG_ABSOLUTE },
-	{ 0,            3,                g_switch_mode,        None },
+	//{ 0,            2,                i_drag,               DRAG_ABSOLUTE },
+	{ 0,            3,                i_drag,               DRAG_RELATIVE },
+	{ 0,            2,                g_switch_mode,        None },
 	{ 0,            4,                g_zoom,               +1 },
 	{ 0,            5,                g_zoom,               -1 },
 };
